@@ -1,6 +1,8 @@
-﻿static int main2()
+﻿using System;
+
+static void Maximo()
 {
-    int num, max = int.MinValue, min = int.MaxValue
+    int num, max = int.MinValue, min = int.MaxValue;
     do
     {
         Console.WriteLine("ingrese su numero");
@@ -19,38 +21,37 @@
             }
         }
     }
-}
-while (num != 0);
 
-Console.WriteLine("El número máximo es: " + max);
-Console.WriteLine("El número mínimo es: " + min);
-static void Main()
+    while (num != 0);
+
+
+    Console.WriteLine("El número máximo es: " + max);
+    Console.WriteLine("El número mínimo es: " + min);
+}
+static void juego()
 {
-    Console.WriteLine("Piense en un numero.");
-    Console.WriteLine("Sigue las instrucciones y te diré en qué número estás pensando.");
+    Console.WriteLine("Piensa en un numero para empezar el juego.");
+    Thread.Sleep(5000);
 
-    Console.Write("Ingresa un número: ");
-    string numeroString = Console.ReadLine();
+    Console.WriteLine("Sigue los pasos y adivinare tu numero pensado.");
+    Thread.Sleep(5000);
 
-    int resultado = Convert.ToInt32(numeroString) * 2;
-    resultado += 8;
-    resultado *= 5;
+    Console.WriteLine("Tu numero multiplicalo por 2. ");
+    Thread.Sleep(5000);
 
-    Console.WriteLine("Tu resultado e: " + resultado);
-    Console.WriteLine("Dimer tu resultado .");
+    Console.WriteLine("Tu numero multiplicalo por 5. ");
+    Thread.Sleep(5000);
 
-    Console.Write("Resultado: ");
-    int resultadoUsuario = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("ahora sumale 8.");
+    Thread.Sleep(5000);
 
-    string resultadoUsuarioString = resultadoUsuario.ToString();
+    Console.WriteLine("ahora escribe tu resultado.");
+    Thread.Sleep(5000);
 
-    string resultadoAnuladoString = resultadoUsuarioString.Substring(0, resultadoUsuarioString.Length - 1);
-
-    int resultadoAnulado = Convert.ToInt32(resultadoAnuladoString);
-
-
-    resultadoAnulado -= 4;
-
-    Console.WriteLine("El número en el que estás pensando es: " + resultadoAnulado);
+    int numero = (Convert.ToInt32(Console.ReadLine()));
+    string numeroLetra = numero.ToString();
+    string resultado = numeroLetra.Substring(0, numeroLetra.Length - 1);
+    Console.WriteLine("Tu numero es :  " + resultado);
 }
-Main();
+Maximo();
+juego();
