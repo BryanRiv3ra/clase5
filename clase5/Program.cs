@@ -53,5 +53,75 @@ static void juego()
     string resultado = numeroLetra.Substring(0, numeroLetra.Length - 1);
     Console.WriteLine("Tu numero es :  " + resultado);
 }
+static void Contador()
+{
+    Console.WriteLine("Ingresa la frase que deseas contar");
+    string frase = Console.ReadLine();
+
+    int contadorpalabra = 0;
+    int contadorvocales = 0;
+    int i = 0;
+
+    while (i < frase.Length)
+    {
+        while (i < frase.Length && frase[i] == ' ')
+        {
+            i++;
+        }
+        if (i < frase.Length)
+        {
+            contadorpalabra++;
+
+            foreach (char a in frase.ToLower())
+            {
+                if (EsVocal(a))
+                {
+                    contadorvocales++;
+                }
+            }
+
+            while (i < frase.Length && frase[i] != ' ')
+            {
+                i++;
+            }
+        }
+
+    }
+    Console.WriteLine("El numero de palabras es: " + contadorpalabra);
+    Console.WriteLine("El numero de vocales es: " + contadorvocales);
+
+    static bool EsVocal(char a)
+    {
+        return "aeiouáéíóú".Contains(a);
+    }
+}
+static void Palindromos()  
+{
+    Console.WriteLine("Ingrese una frase para verificar si es palindroma");
+    string frase = Console.ReadLine();
+
+    frase = frase.Replace(" ", " ").ToLower();
+
+    bool esPalindromo = false;
+
+    for (int i = 0; i < frase.Length / 2; i++)
+    {
+        if (frase[i] != frase[frase.Length - i - 1])
+        {
+            esPalindromo = true; break;
+        }
+    }
+    if (esPalindromo)
+    {
+        Console.WriteLine("La frase es un palindromo");
+    }
+    else
+    {
+        Console.WriteLine("La frase no es un palindromo");
+    }
+}
+
 Maximo();
 juego();
+Contador();
+Palindromos();
